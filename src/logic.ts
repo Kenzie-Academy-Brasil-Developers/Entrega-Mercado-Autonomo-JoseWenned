@@ -21,3 +21,9 @@ export const createProduct = (req: Request, res: Response) => {
 export const getProduct = (req: Request, res: Response) => {
     return res.status(200).json(Market)
 }
+
+export const getOneProduct = (req: Request, res: Response) => {
+    const products = Market.find(product => product.id === req.params.Id)
+
+    return res.status(200).json(products)
+}
