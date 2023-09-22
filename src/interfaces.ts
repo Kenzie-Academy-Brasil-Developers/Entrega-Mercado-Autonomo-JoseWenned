@@ -1,7 +1,11 @@
 export interface Product {
-    "name": string,
-    "price": number,
-    "weigth": number,
-    "section": string,
-    "calories": number,
+
+    id: string;
+    name: string;
+    price: number;
+    weight: number;
+    section: string;
+    calories: number | null | undefined;
+    expirationData: number;
+
 }
