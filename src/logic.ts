@@ -17,3 +17,7 @@ export const createProduct = (req: Request, res: Response) => {
 
     return res.status(201).json({ message: "product sucessfully created", product: newProduct})
 }
+
+export const getProduct = (req: Request, res: Response) => {
+    return res.status(200).json(Market)
+}
