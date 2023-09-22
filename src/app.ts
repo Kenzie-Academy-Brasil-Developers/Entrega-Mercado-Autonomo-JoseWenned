@@ -6,7 +6,6 @@ const app = express()
 app.use(express.json())
 
 app.get("/products")
-
 app.post("/products", createProduct)
 
 const Port = 3000
