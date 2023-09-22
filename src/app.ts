@@ -1,4 +1,4 @@
-import { createProduct, getProduct, getOneProduct, deleteProduct } from "./logic"
+import { createProduct, getProduct, getOneProduct, deleteProduct, updateProduct } from "./logic"
 import express from "express"
 
 const app = express()
@@ -9,6 +9,7 @@ app.get("/products", getProduct)
 app.get("/products/:Id", getOneProduct)
 app.post("/products", createProduct)
 app.delete("/products/:Id", deleteProduct)
+app.patch("/products/:Id", updateProduct)
 
 const Port = 3000
 
