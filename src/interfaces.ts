@@ -3,9 +3,9 @@ export interface Product {
     id: string;
     name: string;
     price: number;
-    weigth: number;
+    weight: number;
     section: string;
-    calories: number;
-    expirationDate: number;
-    
+    calories: number | null | undefined;
+    expirationData: number;
+
 }
