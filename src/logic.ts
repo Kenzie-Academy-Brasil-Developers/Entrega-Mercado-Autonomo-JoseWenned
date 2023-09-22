@@ -35,3 +35,7 @@ export const deleteProduct = (req: Request, res: Response) => {
 
     return res.status(200).json({ message: "Product sucessfully delete." })
 }
+
+export const updateProduct = (req: Request, res: Response) => {
+    
+}
