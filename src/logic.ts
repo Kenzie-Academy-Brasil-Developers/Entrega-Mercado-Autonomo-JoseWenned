@@ -27,3 +27,11 @@ export const getOneProduct = (req: Request, res: Response) => {
 
     return res.status(200).json(products)
 }
+
+export const deleteProduct = (req: Request, res: Response) => {
+
+    const index = Market.findIndex(product => product.id === req.params.Id)
+    Market.splice(index, 1)
+
+    return res.status(200).json({ message: "Product sucessfully delete." })
+}
