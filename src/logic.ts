@@ -12,6 +12,7 @@ export const createProduct = (req: Request, res: Response) => {
     expirationData.setDate(current.getDate() + 365)
 
     const newProduct = {
+
         id: uuidv4(),
         name,
         price,
@@ -19,6 +20,7 @@ export const createProduct = (req: Request, res: Response) => {
         section,
         calories,
         expirationData
+
     }
 
     Market.push(newProduct)
@@ -27,13 +29,13 @@ export const createProduct = (req: Request, res: Response) => {
 }
 
 export const getProduct = (req: Request, res: Response) => {
-    return res.status(200).json(Market)
+    return res.status(200).json({message: "Catalog products found sucessfully." ,Market})
 }
 
 export const getOneProduct = (req: Request, res: Response) => {
     const products = Market.find(product => product.id === req.params.Id)
 
-    return res.status(200).json(products)
+    return res.status(200).json({message: "Product found sucessfully." , products})
 }
 
 export const deleteProduct = (req: Request, res: Response) => {
