@@ -25,7 +25,7 @@ export const createProduct = (req: Request, res: Response) => {
 
     Market.push(newProduct)
 
-    return res.status(201).json({ message: "product sucessfully created", product: newProduct})
+    return res.status(201).json({ message: "Product sucessfully created", product: newProduct})
 }
 
 export const getProduct = (req: Request, res: Response) => {
