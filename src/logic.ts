@@ -5,14 +5,20 @@ import { Product } from "./interfaces";
 
 export const createProduct = (req: Request, res: Response) => {
 
+    const { name, price, weight, section, calories } = req.body
+
+    const current = new Date()
+    const expirationData = new Date(current)
+    expirationData.setDate(current.getDate() + 365)
+
     const newProduct = {
         id: uuidv4(),
-        name: req.body.name,
-        price: req.body.price,
-        weight: req.body.weight,
-        section: req.body.section,
-        calories: req.body.calories,
-        expirationData: req.body.expirationData
+        name,
+        price,
+        weight,
+        section,
+        calories,
+        expirationData
     }
 
     Market.push(newProduct)
