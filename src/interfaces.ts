@@ -6,6 +6,6 @@ export interface Product {
     weight: number;
     section: string;
     calories: number | null | undefined;
-    expirationData: number;
+    expirationData: Date;
 
 }
