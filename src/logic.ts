@@ -37,7 +37,7 @@ export const getProduct = (req: Request, res: Response) => {
 export const getOneProduct = (req: Request, res: Response) => {
     const products = Market.find(product => product.id === req.params.Id)
 
-    return res.status(200).json({message: "Product found sucessfully." , products})
+    return res.status(200).json({products})
 }
 
 export const deleteProduct = (req: Request, res: Response) => {
@@ -68,5 +68,5 @@ export const updateProduct = (req: Request, res: Response) => {
 
     Market.splice(index, 1, newProduct as Product)
 
-    return res.status(200).json({ message: "Product update sucessfully.", product: newProduct })
+    return res.status(200).json({product: newProduct })
 }
