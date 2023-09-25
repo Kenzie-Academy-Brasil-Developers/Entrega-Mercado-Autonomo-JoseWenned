@@ -1,15 +1,15 @@
 import { createProduct, getProduct, getOneProduct, deleteProduct, updateProduct } from "./logic"
 import express from "express"
-
+import { isValidProduct, isValidProductId } from "./middlewares/middlewares"
 const app = express()
 
 app.use(express.json())
 
 app.get("/products", getProduct)
-app.get("/products/:Id", getOneProduct)
-app.post("/products", createProduct)
-app.delete("/products/:Id", deleteProduct)
-app.patch("/products/:Id", updateProduct)
+app.get("/products/:Id", isValidProductId, getOneProduct)
+app.post("/products", isValidProduct, createProduct)
+app.delete("/products/:Id", isValidProductId, deleteProduct)
+app.patch("/products/:Id", isValidProductId, isValidProduct, updateProduct)
 
 const Port = 3000
 
