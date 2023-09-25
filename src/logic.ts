@@ -29,7 +29,9 @@ export const createProduct = (req: Request, res: Response) => {
 }
 
 export const getProduct = (req: Request, res: Response) => {
-    return res.status(200).json({message: "Catalog products found sucessfully." ,Market})
+    const total = Market.reduce((acc, current) => acc + Number(current.price), 0)
+
+    return res.status(200).json({total: total, products: Market})
 }
 
 export const getOneProduct = (req: Request, res: Response) => {
@@ -43,7 +45,7 @@ export const deleteProduct = (req: Request, res: Response) => {
     const index = Market.findIndex(product => product.id === req.params.Id)
     Market.splice(index, 1)
 
-    return res.status(200).json({ message: "Product sucessfully delete." })
+    return res.status(204).json()
 }
 
 export const updateProduct = (req: Request, res: Response) => {
