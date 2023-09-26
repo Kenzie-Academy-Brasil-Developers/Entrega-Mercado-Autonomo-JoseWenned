@@ -34,21 +34,21 @@ export const getProduct = (req: Request, res: Response) => {
 }
 
 export const getOneProduct = (req: Request, res: Response) => {
-    const products = Market.find(product => product.id === Number(req.params.Id))
+    const products = Market.find(product => product.id === Number(req.params.id))
 
     return res.status(200).json({products})
 }
 
 export const deleteProduct = (req: Request, res: Response) => {
 
-    const index = Market.findIndex(product => product.id === Number(req.params.Id))
+    const index = Market.findIndex(product => product.id === Number(req.params.id))
     Market.splice(index, 1)
 
     return res.status(204).json()
 }
 
 export const updateProduct = (req: Request, res: Response) => {
-    const product = Market.find(product => product.id === Number(req.params.Id))
+    const product = Market.find(product => product.id === Number(req.params.id))
 
     let productBody : Partial<Product> = {}
 
@@ -63,7 +63,7 @@ export const updateProduct = (req: Request, res: Response) => {
 
     const newProduct = { ...product, ...productBody }
 
-    const index = Market.findIndex(product => product.id === Number(req.params.Id))
+    const index = Market.findIndex(product => product.id === Number(req.params.id))
 
     Market.splice(index, 1, newProduct as Product)
 

@@ -7,9 +7,9 @@ app.use(express.json())
 
 app.get("/products", getProduct)
 app.post("/products", isValidProduct, createProduct)
-app.get("/products/:Id", isValidProductId, getOneProduct)
-app.delete("/products/:Id", isValidProductId, deleteProduct)
-app.patch("/products/:Id", isValidProductId, isValidProduct, updateProduct)
+app.get("/products/:id", isValidProductId, getOneProduct)
+app.delete("/products/:id", isValidProductId, deleteProduct)
+app.patch("/products/:id", isValidProductId, isValidProduct, updateProduct)
 
 const Port = 3000
 
