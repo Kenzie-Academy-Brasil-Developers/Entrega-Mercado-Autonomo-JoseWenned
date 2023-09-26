@@ -1,11 +1,11 @@
 export interface Product {
 
-    id: string;
+    id: number;
     name: string;
     price: number;
     weight: number;
-    section: string;
-    calories: number | null | undefined;
+    section: "food" | "cleaning";
+    calories?: number | null | undefined;
     expirationData: Date;
 
 }

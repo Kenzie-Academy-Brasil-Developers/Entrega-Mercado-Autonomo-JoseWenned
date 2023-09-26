@@ -6,8 +6,8 @@ const app = express()
 app.use(express.json())
 
 app.get("/products", getProduct)
-app.get("/products/:Id", isValidProductId, getOneProduct)
 app.post("/products", isValidProduct, createProduct)
+app.get("/products/:Id", isValidProductId, getOneProduct)
 app.delete("/products/:Id", isValidProductId, deleteProduct)
 app.patch("/products/:Id", isValidProductId, isValidProduct, updateProduct)
 
