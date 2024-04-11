@@ -1,0 +1,46 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "CRUD the products",
+        "description": "Simple API to store products",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/api-documentation",
+            "description": "Development env"
+        }
+    ],
+    "paths": {},
+    "components": {
+        "schemas": {
+            "CreateProduct": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "number"
+                    },
+                    "weight": {
+                        "type": "number"
+                    },
+                    "calories": {
+                        "type": "number" 
+                    },
+                    "section": {
+                        "type": "string"
+                    },
+                    "expirationData": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    "security": []
+}
