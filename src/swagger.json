@@ -11,10 +11,311 @@
             "description": "Development env"
         }
     ],
-    "paths": {},
+    "paths": {
+        "/products": {
+            "get": {
+                "description": "Router responsible for searching all products register.",
+                "tags": ["Router without parameter"],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array"
+                                },
+                                "examples": {
+                                    "response": {
+                                        "value": [
+                                            {
+                                                "id": "1",
+                                                "name": "Shampoo",
+                                                "price": "$: 5.00",
+                                                "weight": "100ml",
+                                                "section": "cleaning",
+                                                "experirationDate": "04/05/2024"
+                                            },
+                                            {
+                                                "id": "2",
+                                                "name": "Ypê",
+                                                "price": "$: 2.00",
+                                                "weight": "70ml",
+                                                "section": "cleaning",
+                                                "experirationDate": "10/07/2024"
+                                            },
+                                            {
+                                                "id": "3",
+                                                "name": "Rice",
+                                                "price": "$: 3.50",
+                                                "weight": "1kg",
+                                                "calories": "32",
+                                                "section": "food",
+                                                "experirationDate": "11/05/2024"
+                                            },
+                                            {
+                                                "id": "4",
+                                                "name": "Coffeo",
+                                                "price": "$: 4.00",
+                                                "weight": "300g",
+                                                "calories": "17",
+                                                "section": "food",
+                                                "experirationDate": "19/09/2024"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [{}]
+            },
+            "post": {
+                "description": "Router responsible for register products.",
+                "tags": ["Router without parameter"],
+                "requestBody": {   
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateProduct"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type":"object",
+                                    "$ref": "#/components/schemas/readProduct"
+                                },
+                                "examples": {
+                                    "product": {
+                                        "value": {
+                                            "id": 1,
+                                            "name": "Coffeo",
+                                            "price": 2.00,
+                                            "weight": 100,
+                                            "calories": 21,
+                                            "section": "food",
+                                            "expirationDate": "02/09/2024"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "conflictError": {
+                                        "value": {
+                                            "message": "Product already registered"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [{}]
+            }
+        },
+        "/products/:id": {
+            "get": {
+                "description": "The router resposible searching just product information.",
+                "tags": ["Router with parameter"],
+                "parameters": [{
+                    "schema": {
+                        "type": "number"
+                    },
+                    "in": "query",
+                    "description": "The Id product you want to search.",
+                    "name": "id"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/readProduct"
+                                },
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "id": 1,
+                                            "name": "Coffeo",
+                                            "price": 2.00,
+                                            "weight": 100,
+                                            "calories": 21,
+                                            "section": "food",
+                                            "expirationDate": "02/09/2024"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "notFoundError": {
+                                        "value": {
+                                            "message": "Not found product."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                },
+                "security": [{}]
+            },
+            "patch": {
+                "description": "The router resposible update just product information.",
+                "tags": ["Router with parameter"],
+                "parameters": [{
+                    "schema": {
+                        "type": "number"
+                    },
+                    "in": "query",
+                    "description": "The Id product you want to search.",
+                    "name": "id"
+                }],
+                "requestBody": {   
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updateProduct"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfully update product",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/updateProduct"
+                                },
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "id": 1,
+                                            "name": "Coffeo",
+                                            "price": 2.00,
+                                            "weight": 100,
+                                            "calories": 21,
+                                            "section": "food",
+                                            "expirationDate": "02/09/2024"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "conflictError": {
+                                        "value": {
+                                            "message": "Product already registered"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "notFoundError": {
+                                        "value": {
+                                            "message": "Not found product."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [{}]
+            },
+            "delete": {
+                "description": "The router resposible delete just product information.",
+                "tags": ["Router with parameter"],
+                "parameters": [{
+                    "schema": {
+                        "type": "number"
+                    },
+                    "in": "query",
+                    "description": "The Id product you want to search.",
+                    "name": "id"
+                }],
+                "responses": {
+                    "204": {
+                        "description": "No body content"
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "notFoundError": {
+                                        "value": {
+                                            "message": "Not found product."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [{}]
+            }
+        }
+    },
     "components": {
         "schemas": {
             "CreateProduct": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "number"
+                    },
+                    "weight": {
+                        "type": "number"
+                    },
+                    "calories": {
+                        "type": "number" 
+                    },
+                    "section": {
+                        "type": "string"
+                    },
+                    "expirationData": {
+                        "type": "string"
+                    }
+                }
+            },
+            "readProduct": {
                 "type": "object",
                 "properties": {
                     "id": {
@@ -37,6 +338,49 @@
                     },
                     "expirationData": {
                         "type": "string"
+                    }
+                }
+            },
+            "readAllProduct": {
+                "type": "array",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "number"
+                    },
+                    "weight": {
+                        "type": "number"
+                    },
+                    "calories": {
+                        "type": "number" 
+                    },
+                    "section": {
+                        "type": "string"
+                    },
+                    "expirationData": {
+                        "type": "string"
+                    }
+                }
+            },
+            "updateProduct":{
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "number"
+                    },
+                    "weight": {
+                        "type": "number"
+                    },
+                    "calories": {
+                        "type": "number"
                     }
                 }
             }
