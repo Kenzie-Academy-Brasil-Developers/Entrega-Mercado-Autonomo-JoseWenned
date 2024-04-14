@@ -28,36 +28,36 @@
                                     "response": {
                                         "value": [
                                             {
-                                                "id": "1",
+                                                "id": 1,
                                                 "name": "Shampoo",
-                                                "price": "$: 5.00",
-                                                "weight": "100ml",
+                                                "price": 5.00,
+                                                "weight": 100,
                                                 "section": "cleaning",
                                                 "experirationDate": "04/05/2024"
                                             },
                                             {
-                                                "id": "2",
+                                                "id": 2,
                                                 "name": "Ypê",
-                                                "price": "$: 2.00",
-                                                "weight": "70ml",
+                                                "price": 2.00,
+                                                "weight": 70,
                                                 "section": "cleaning",
                                                 "experirationDate": "10/07/2024"
                                             },
                                             {
-                                                "id": "3",
+                                                "id": 3,
                                                 "name": "Rice",
-                                                "price": "$: 3.50",
-                                                "weight": "1kg",
-                                                "calories": "32",
+                                                "price": 3.50,
+                                                "weight": 138,
+                                                "calories": 32,
                                                 "section": "food",
                                                 "experirationDate": "11/05/2024"
                                             },
                                             {
-                                                "id": "4",
+                                                "id": 4,
                                                 "name": "Coffeo",
-                                                "price": "$: 4.00",
-                                                "weight": "300g",
-                                                "calories": "17",
+                                                "price": 4.00,
+                                                "weight": 300,
+                                                "calories": 17,
                                                 "section": "food",
                                                 "experirationDate": "19/09/2024"
                                             }
